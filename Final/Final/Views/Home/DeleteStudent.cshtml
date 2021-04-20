@@ -1,0 +1,35 @@
+﻿@model Final.Models.StudentModel
+<h2>Удаление книги</h2>
+<dl>
+    <dt>Название</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>Автор</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Surname)
+    </dd>
+
+    <dt>Цена</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Motherland)
+    </dd>
+    <dd>
+        @Html.DisplayFor(model => model.Course)
+    </dd>
+    <dd>
+        @Html.DisplayFor(model => model.Speciality)
+    </dd>
+    <dd>
+        @Html.DisplayFor(model => model.State)
+    </dd>
+    <dd>
+        @Html.DisplayFor(model => model.DateAdd)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}

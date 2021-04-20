@@ -1,0 +1,75 @@
+﻿@model Final.Models.StudentModel
+
+
+@{
+    //ViewData["Title"] = "Список студентов";
+    //@Html.ActionLink("Группы", "dbOutput","Home")
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="general">
+        <ul class="menu-item">
+            <li class="menu-item">
+                @Html.ActionLink("Главная", "Index", "Home")
+            </li>
+            <li class="menu-item">
+                @Html.ActionLink("Группы", "dbOutput", "Home")
+            </li>
+            <li class="menu-item">
+                <a href="">Редактирование</a>
+            </li>
+            <li class="menu-item">
+                <a href="">Добавить студента</a>
+            </li>
+        </ul>
+    </div>
+    <div class="block">
+        Страница добавления студентов
+        @using (Html.BeginForm())
+        {
+            @Html.LabelFor(model => model.Name, "Имя студента")
+            <br />
+            @Html.EditorFor(model => model.Name)
+            <br /><br />
+            @Html.LabelFor(model => model.Surname, "Фамилия")
+            <br />
+            @Html.EditorFor(model => model.Surname)
+            <p>
+                @Html.LabelFor(model => model.Motherland, "Отчество")
+                <br />
+                @Html.EditorFor(model => model.Motherland)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.Course, "Курс")
+                <br />
+                @Html.EditorFor(model => model.Course)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.Speciality, "Специальность")
+                <br />
+                @Html.EditorFor(model => model.Speciality)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.State, "Стостояние")
+                <br />
+                @Html.EditorFor(model => model.State)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.DateAdd, "Дата зачисления")
+                <br />
+                @Html.EditorFor(model => model.DateAdd)
+            </p>
+            <br /><br />
+            <input type="submit" value="Добавить" />
+        }
+    </div>
+    <script scr="~/js/bootstrap.min.js"></script>
+</body>
+</html>

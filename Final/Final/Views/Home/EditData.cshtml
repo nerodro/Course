@@ -1,0 +1,75 @@
+﻿@model Final.Models.StudentModel
+@{
+    ViewBag.Title = "Edit";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="general">
+        <ul class="menu-item">
+            <li class="menu-item">
+                <a href="">Главная</a>
+            </li>
+            <li class="menu-item">
+                @Html.ActionLink("Группы", "dbOutput", "Home")
+
+            </li>
+        </ul>
+    </div>
+    <div class="block">
+        <h2>Изменение данных студента</h2>
+
+        @using (Html.BeginForm())
+        {
+    <fieldset>
+        <legend>Студент</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <p>
+            Имя <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+
+        <p>
+            Фамилия <br />
+            @Html.EditorFor(model => model.Surname)
+        </p>
+        <p>
+            Отчество<br />
+            @Html.EditorFor(model => model.Motherland)
+        </p>
+        <p>
+            Группа <br />
+            @Html.EditorFor(model => model.Course)
+        </p>
+        <p>
+            Специальность <br />
+            @Html.EditorFor(model => model.Speciality)
+        </p>
+        <p>
+            Состояние <br />
+            @Html.EditorFor(model => model.State)
+        </p>
+        <p>
+            Дата зачисления <br />
+            @Html.EditorFor(model => model.DateAdd)
+        </p>
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+        }
+        <div>
+            @Html.ActionLink("Вернуться назад", "dbOutput")
+        </div>
+    </div>
+    <script scr="~/js/bootstrap.min.js"></script>
+</body>
+</html>

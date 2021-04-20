@@ -1,0 +1,45 @@
+﻿@model Final.ViewModels.LoginModel
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="general">
+        <ul class="menu-item">
+            <li class="menu-item">
+                <a href="">Главная</a>
+            </li>
+            <li class="menu-item">
+                @Html.ActionLink("Группы", "Login", "Account")
+
+            </li>
+        </ul>
+    </div>
+    <div class="block">
+        <h2>Вход на сайт</h2>
+
+        <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
+            <div>
+                <div class="form-group">
+                    <label asp-for="Login">Введите Email</label>
+                    <input type="text" asp-for="Login" />
+                    <span asp-validation-for="Login" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Введите пароль</label>
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Войти" class="btn btn-outline-dark" />
+                </div>
+            </div>
+        </form>
+        </div>
+    </body>

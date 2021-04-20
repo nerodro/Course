@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Final.Models.StudentModel>
+
+
+@{
+    //ViewData["Title"] = "Список студентов";
+    //Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <title>Магазин смартфонов</title>
+</head>
+<body>
+    <div class="general">
+        <ul class="menu-item">
+            <li class="menu-item">
+                @Html.ActionLink("Главная", "Index", "Home")
+            </li>
+            <li class="menu-item">
+                <a href="~/Home/dbOutput">Группы</a>
+            </li>
+        </ul>
+    </div>
+    <div class="block">
+        <h3>Наши студенты</h3>
+        <form asp-controller="dbOutput" asp-action="dbOutput" method="get">
+            <p>
+                Title: <input type="text" name="SearchString">
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+        @Html.ActionLink("Добавить студента", "AddStudent", "Home")
+        <table>
+
+            <tr>
+                <td>Имя</td>
+                <td>Фамилия</td>
+                <td>Отчество</td>
+                <td>Курс</td>
+                <td>Специальность</td>
+                <td>Состояние</td>
+                <td>Дата зачисления</td>
+                <td></td>
+            </tr>
+            @foreach (var StudentModel in Model)
+            {
+                <tr>
+                    <td>@StudentModel.Name</td>
+                    <td>@StudentModel.Surname</td>
+                    <td>@StudentModel.Motherland</td>
+                    <td>@StudentModel.Course</td>
+                    <td>@StudentModel.Speciality</td>
+                    <td>@StudentModel.State</td>
+                    <td>@StudentModel.DateAdd</td>
+
+                    <td>
+                        @Html.ActionLink("Редактировать", "EditData", new { Id = StudentModel.Id })
+                        @Html.ActionLink("Удалить", "DeleteStudent", new { id = StudentModel.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
